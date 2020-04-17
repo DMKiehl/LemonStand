@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         // member variables (HAS A)
         public string name;
+        public double pricePer;
 
         // constructor (SPAWNER)
         static Item()

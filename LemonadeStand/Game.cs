@@ -16,6 +16,7 @@ namespace LemonadeStand
         //constructor
         public Game()
         {
+            player = new Player();
 
         }
 

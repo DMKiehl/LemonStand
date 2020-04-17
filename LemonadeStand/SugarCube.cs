@@ -14,6 +14,7 @@ namespace LemonadeStand
         public SugarCube()
         {
             name = "sugar cube";
+            pricePer = .13;
         }
 
         // member methods (CAN DO)

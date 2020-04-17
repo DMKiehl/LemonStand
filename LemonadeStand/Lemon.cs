@@ -14,6 +14,7 @@ namespace LemonadeStand
         public Lemon()
         {
             name = "lemon";
+            pricePer = .30;
         }
 
         // member methods (CAN DO)
