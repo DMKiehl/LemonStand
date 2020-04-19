@@ -10,6 +10,9 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
+            Day day = new Day();
+            day.DaysForecast(1);
+            day.DaysActualWeather();
         }
     }
 }

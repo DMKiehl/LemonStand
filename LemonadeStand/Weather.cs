@@ -13,26 +13,57 @@ namespace LemonadeStand
         public int temperature;
         private List<string> weatherConditions;
         Random myRandom = new Random();
+        public string actualCondition;
+        public int actualTemp;
+        public int index;
+        
 
         //constructor
         public Weather()
         {
-            weatherConditions = new List<string> { "Sunny", "Overcast", "Cloudy", "Rain", "Thunder", "Windy"};
+            weatherConditions = new List<string> { "Sunny", "Overcast", "Cloudy", "Windy", "Rain", "Thunder", };
+
         }
 
 
-       
-        public void GetForecast()
+        //member methods
+        public int GetForecast(int currentDay)
         {
-            int index = myRandom.Next(weatherConditions.Count);
+            index = myRandom.Next(weatherConditions.Count);
             condition = (weatherConditions[index]);
 
             int min = 50;
             int max = 100;
             temperature = myRandom.Next(min, max);
 
+            return index;
+
         }
-        //member methods
+        
+        public void ActualWeather(string newCondition, int newTemperature)
+        {
+            int min = temperature -= 5;
+            int max = temperature += 5;
+            actualTemp = myRandom.Next(min, max);
+
+            int minLocation = index -= 1;
+            int maxLocation = index += 1;
+            
+            if (minLocation == -1)
+            {
+                minLocation = 0;
+            }
+
+            if (maxLocation == 7)
+            {
+                maxLocation = 6;
+            }
+
+            index = myRandom.Next(minLocation, maxLocation);
+            actualCondition = (weatherConditions[index]);
+            
+
+        }
 
 
     }
