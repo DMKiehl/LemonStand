@@ -18,6 +18,8 @@ namespace LemonadeStand
         // constructor (SPAWNER)
         public Player()
         {
+            Console.WriteLine("Please enter your name.");
+            name = Console.ReadLine();
             inventory = new Inventory();
             wallet = new Wallet();
         }

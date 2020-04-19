@@ -15,7 +15,7 @@ namespace LemonadeStand
         //constructor
         public Day()
         {
-
+            
         }
 
         //member methods

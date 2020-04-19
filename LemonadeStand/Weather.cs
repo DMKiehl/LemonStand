@@ -39,7 +39,7 @@ namespace LemonadeStand
             return index;
 
         }
-        
+
         public void ActualWeather(string newCondition, int newTemperature)
         {
             int min = temperature -= 5;
@@ -48,7 +48,7 @@ namespace LemonadeStand
 
             int minLocation = index -= 1;
             int maxLocation = index += 1;
-            
+
             if (minLocation == -1)
             {
                 minLocation = 0;
@@ -61,9 +61,9 @@ namespace LemonadeStand
 
             index = myRandom.Next(minLocation, maxLocation);
             actualCondition = (weatherConditions[index]);
-            
 
-        Adde}
+
+        }
 
 
     }

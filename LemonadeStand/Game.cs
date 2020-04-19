@@ -11,13 +11,16 @@ namespace LemonadeStand
         //member variables
         private Player player;
         private List<Day> days;
-        private int currentDay = 1;
+        private int currentDay;
         public int totalDaysToPlay;
 
         //constructor
         public Game()
         {
             player = new Player();
+            currentDay = 1;
+            days = new List<Day>();
+
 
         }
 
@@ -28,7 +31,22 @@ namespace LemonadeStand
             SetDays();
             while(totalDaysToPlay > 0)
             {
+                Day newDay = new Day();
+                newDay.DaysForecast(currentDay);
+                //add day to list??
 
+                Console.WriteLine("Money available: $" + player.wallet.Money);
+                Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
+
+                Console.WriteLine("Would you like to go to the store?");
+                string input = Console.ReadLine();
+                if (input == "yes" || input == "Yes")
+                {
+
+                }
+
+
+                
 
                 currentDay++;
                 totalDaysToPlay--;
@@ -55,6 +73,25 @@ namespace LemonadeStand
             }
             
            
+        }
+
+        public void StartDayDisplay()
+        {
+            Day newDay = new Day();
+            newDay.DaysForecast(currentDay);
+            //add day to list??
+
+            Console.WriteLine("Money available: $" + player.wallet.Money);
+            Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
+
+            Console.WriteLine("Would you like to go to the store?");
+            string input = Console.ReadLine();
+            if (input == "yes" || input == "Yes")
+            {
+
+            }
+
+            newDay.DaysActualWeather();
         }
     }
 }
