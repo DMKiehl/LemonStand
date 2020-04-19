@@ -63,7 +63,7 @@ namespace LemonadeStand
             actualCondition = (weatherConditions[index]);
             
 
-        }
+        Adde}
 
 
     }

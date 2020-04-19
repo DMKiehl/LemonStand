@@ -26,7 +26,7 @@ namespace LemonadeStand
             weather.GetForecast(currentDay);
             Console.WriteLine("Weather Forecast: " + weather.condition + " " + weather.temperature + "F");
             
-            Console.ReadLine();
+            //Console.ReadLine();
 
         }
 
