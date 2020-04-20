@@ -21,7 +21,7 @@ namespace LemonadeStand
         //constructor
         public Weather()
         {
-            weatherConditions = new List<string> { "Sunny", "Overcast", "Cloudy", "Windy", "Rain", "Thunder", };
+            weatherConditions = new List<string> { "Sunny", "Overcast", "Cloudy", "Windy", "Rain", "Thunder"};
 
         }
 
@@ -42,8 +42,8 @@ namespace LemonadeStand
 
         public void ActualWeather(string newCondition, int newTemperature)
         {
-            int min = temperature -= 5;
-            int max = temperature += 5;
+            int min = temperature -= 3;
+            int max = temperature += 3;
             actualTemp = myRandom.Next(min, max);
 
             int minLocation = index -= 1;
@@ -54,9 +54,9 @@ namespace LemonadeStand
                 minLocation = 0;
             }
 
-            if (maxLocation == 7)
+            if (maxLocation == 6)
             {
-                maxLocation = 6;
+                maxLocation = 5;
             }
 
             index = myRandom.Next(minLocation, maxLocation);

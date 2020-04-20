@@ -35,18 +35,13 @@ namespace LemonadeStand
                 newDay.DaysForecast(currentDay);
                 //add day to list??
 
-                Console.WriteLine("Money available: $" + player.wallet.Money);
-                Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
-
-                Console.WriteLine("Would you like to go to the store?");
-                string input = Console.ReadLine();
-                if (input == "yes" || input == "Yes")
-                {
-
-                }
+                StartDayDisplay();
+                player.recipe.SetRecipe();
 
 
-                
+
+                newDay.DaysActualWeather();
+
 
                 currentDay++;
                 totalDaysToPlay--;
@@ -77,9 +72,7 @@ namespace LemonadeStand
 
         public void StartDayDisplay()
         {
-            Day newDay = new Day();
-            newDay.DaysForecast(currentDay);
-            //add day to list??
+            
 
             Console.WriteLine("Money available: $" + player.wallet.Money);
             Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
@@ -88,10 +81,14 @@ namespace LemonadeStand
             string input = Console.ReadLine();
             if (input == "yes" || input == "Yes")
             {
-
+                //send player to store to purchase inventory
+                Console.WriteLine("Money left: $" + player.wallet.Money);
+                Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
             }
 
-            newDay.DaysActualWeather();
+           
         }
+
+      
     }
 }

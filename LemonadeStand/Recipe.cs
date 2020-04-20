@@ -17,11 +17,17 @@ namespace LemonadeStand
         //constructor
         public Recipe()
         {
-
+            amountofLemons = 4;
+            amountOfSugarCubes = 10;
+            amountOfIceCubes = 48;
+            pricePerCup = .25;
         }
 
         //member methods
+        public void SetRecipe()
+        {
 
+        }
 
     }
 }
