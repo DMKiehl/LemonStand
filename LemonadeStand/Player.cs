@@ -14,6 +14,8 @@ namespace LemonadeStand
         public Wallet wallet;
         public Recipe recipe;
         public Pitcher pitcher;
+        private Store store;
+            
 
         // constructor (SPAWNER)
         public Player()
@@ -24,19 +26,14 @@ namespace LemonadeStand
             wallet = new Wallet();
             recipe = new Recipe();
             pitcher = new Pitcher();
+            store = new Store();
         }
 
         // member methods (CAN DO)
-
-        public void GoToStore()
-        {
-
-        }
-
         public void DisplayCurrentRecipe()
         {
             Console.WriteLine("Current recipe: \nLemons: " + recipe.amountofLemons + "\nSugar Cubes: " + recipe.amountOfSugarCubes + "\nIce Cubes: " + recipe.amountOfIceCubes + "\nPrice Per Cup: " + recipe.pricePerCup);
-
+            Console.WriteLine("\nTotal number of cups per pitcher: " + pitcher.cupsLeftInPitcher);
             Console.WriteLine("\nWould you like to adjust the recipe or Price per cup?");
             string input = Console.ReadLine();
             if (input == "yes" || input == "Yes")
@@ -44,7 +41,17 @@ namespace LemonadeStand
                 recipe.SetRecipe();
             }
         }
+
+        public void GoToStore(Player player)
+        {
+            store.SellLemons(player);
+            store.SellSugarCubes(player);
+            store.SellIceCubes(player);
+            store.SellCups(player);
+
+        }
+
     }
-    
+
 
 }

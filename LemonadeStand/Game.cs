@@ -27,7 +27,7 @@ namespace LemonadeStand
         //member methods
         public void PlayGame()
         {
-            Console.WriteLine("Welcome to Lemonade Stand!");
+            Console.WriteLine("Welcome to Lemonade Stand " + player.name + "!");
             SetDays();
             while(totalDaysToPlay > 0)
             {
@@ -81,6 +81,7 @@ namespace LemonadeStand
             string input = Console.ReadLine();
             if (input == "yes" || input == "Yes")
             {
+                player.GoToStore(player);
                 //send player to store to purchase inventory
                 Console.WriteLine("Money left: $" + player.wallet.Money);
                 Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);

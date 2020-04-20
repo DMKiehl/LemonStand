@@ -17,7 +17,7 @@ namespace LemonadeStand
         //constructor
         public Recipe()
         {
-            amountofLemons = 4;
+            amountofLemons = 3;
             amountOfSugarCubes = 10;
             amountOfIceCubes = 48;
             pricePerCup = .25;
@@ -39,6 +39,8 @@ namespace LemonadeStand
 
             Console.WriteLine("\nHow much would you like to charge per cup of lemonade?");
             pricePerCup = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("New recipe: \nLemons: " + amountofLemons + "\nSugar Cubes: " + amountOfSugarCubes + "\nIce Cubes: " + amountOfIceCubes + "\nPrice Per Cup: " + pricePerCup);
 
         }
 
