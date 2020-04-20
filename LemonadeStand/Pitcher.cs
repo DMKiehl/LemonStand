@@ -26,6 +26,8 @@ namespace LemonadeStand
             player.inventory.RemoveIceCubesFromInventory(player.recipe.amountOfIceCubes);
             player.inventory.RemoveCupsFromInventory(cupsLeftInPitcher);
 
+            cupsLeftInPitcher = 12;
+
         }
 
 

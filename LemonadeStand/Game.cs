@@ -39,8 +39,9 @@ namespace LemonadeStand
                 player.DisplayCurrentRecipe();
 
                 newDay.DaysActualWeather();
+                StartDay();
 
-                player.pitcher.FillPitcher(player);
+
 
 
                 currentDay++;
@@ -88,6 +89,18 @@ namespace LemonadeStand
             }
 
            
+        }
+
+        public void StartDay()
+        {
+
+            player.pitcher.FillPitcher(player);
+
+        }
+
+        public void EndDay()
+        {
+
         }
 
       
