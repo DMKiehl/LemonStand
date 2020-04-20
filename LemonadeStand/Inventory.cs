@@ -59,5 +59,53 @@ namespace LemonadeStand
                 cups.Add(cup);
             }
         }
+
+        public void RemoveLemonsFromInventory(int numberOfLemons)
+        {
+            
+            if (lemons.Count >= numberOfLemons)
+            {
+                for (int i = numberOfLemons; i > 0; i--)
+                {
+                    lemons.RemoveAt(1);
+                }
+            }        
+        }
+
+        public void RemoveSugarFromInventory(int numberOfSugarCubes)
+        {
+            if (sugarCubes.Count >= numberOfSugarCubes)
+            {
+                for (int i = numberOfSugarCubes; i > 0; i--)
+                {
+                    sugarCubes.RemoveAt(1);
+                }
+            }
+
+        }
+
+        public void RemoveIceCubesFromInventory(int numberOfIceCubes)
+        {
+            if (iceCubes.Count >= numberOfIceCubes)
+            {
+                for (int i = numberOfIceCubes; i > 0; i--)
+                {
+                    iceCubes.RemoveAt(1);
+                }
+            }
+
+        }
+
+        public void RemoveCupsFromInventory(int numberOfCups)
+        {
+            if (cups.Count >= numberOfCups)
+            {
+                for (int i = numberOfCups; i > 0; i--)
+                {
+                    cups.RemoveAt(1);
+                }
+            }
+
+        }
     }
 }

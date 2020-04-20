@@ -19,6 +19,15 @@ namespace LemonadeStand
 
         //member methods
 
+        public void FillPitcher(Player player)
+        {
+            player.inventory.RemoveLemonsFromInventory(player.recipe.amountofLemons);
+            player.inventory.RemoveSugarFromInventory(player.recipe.amountOfSugarCubes);
+            player.inventory.RemoveIceCubesFromInventory(player.recipe.amountOfIceCubes);
+            player.inventory.RemoveCupsFromInventory(cupsLeftInPitcher);
+
+        }
+
 
     }
 }

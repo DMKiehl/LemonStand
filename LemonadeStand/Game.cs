@@ -38,9 +38,9 @@ namespace LemonadeStand
                 StartDayDisplay();
                 player.DisplayCurrentRecipe();
 
-
-
                 newDay.DaysActualWeather();
+
+                player.pitcher.FillPitcher(player);
 
 
                 currentDay++;

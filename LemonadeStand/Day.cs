@@ -34,7 +34,8 @@ namespace LemonadeStand
         {
             weather.ActualWeather(weather.condition, weather.temperature);
             Console.WriteLine("Today's weather is: " + weather.actualCondition + " " + weather.actualTemp + "F");
-            Console.ReadLine();
+            
+            //Console.ReadLine();
         }
 
     }

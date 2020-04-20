@@ -67,6 +67,7 @@ namespace LemonadeStand
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
             }
+        
         }
 
         private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)
