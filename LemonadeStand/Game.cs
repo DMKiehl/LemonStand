@@ -13,14 +13,14 @@ namespace LemonadeStand
         private List<Day> days;
         private int currentDay;
         public int totalDaysToPlay;
-
+        
         //constructor
         public Game()
         {
             player = new Player();
             currentDay = 1;
             days = new List<Day>();
-
+            
 
         }
 
@@ -31,18 +31,27 @@ namespace LemonadeStand
             SetDays();
             while(totalDaysToPlay > 0)
             {
-                Day newDay = new Day();
-                newDay.DaysForecast(currentDay);
-                //add day to list??
-
+                Day newDay = new Day(currentDay);
+                days.Add(newDay);
+               
                 StartDayDisplay();
+                player.GoToStore(player);
+
                 player.DisplayCurrentRecipe();
+                player.recipe.SetRecipe();
 
-                newDay.DaysActualWeather();
-                StartDay();
+                newDay.PrintActualWeather();
+                newDay.DailyCustomerNumber();
+
+                while (player.inventory.lemons.Count >= player.recipe.amountofLemons && player.inventory.iceCubes.Count >= player.recipe.amountOfIceCubes && player.inventory.cups.Count >= player.pitcher.cupsInPitcher && player.inventory.sugarCubes.Count >= player.recipe.amountOfSugarCubes && newDay.dailyCustomerNumber > 0)
+                {
+                    player.pitcher.FillPitcher(player);
+                    newDay.SellLemonade(player);
 
 
+                }
 
+                EndDay();
 
                 currentDay++;
                 totalDaysToPlay--;
@@ -73,34 +82,14 @@ namespace LemonadeStand
 
         public void StartDayDisplay()
         {
-            
-
             Console.WriteLine("Money available: $" + player.wallet.Money);
             Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
-
-            Console.WriteLine("Would you like to go to the store?");
-            string input = Console.ReadLine();
-            if (input == "yes" || input == "Yes")
-            {
-                player.GoToStore(player);
-                //send player to store to purchase inventory
-                Console.WriteLine("Money left: $" + player.wallet.Money);
-                Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
-            }
-
-           
         }
-
-        public void StartDay()
-        {
-
-            player.pitcher.FillPitcher(player);
-
-        }
-
+      
         public void EndDay()
         {
-
+            //display daily profits and losses
+            //display total profits and losses thus far
         }
 
       

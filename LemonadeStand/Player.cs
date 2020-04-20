@@ -33,21 +33,25 @@ namespace LemonadeStand
         public void DisplayCurrentRecipe()
         {
             Console.WriteLine("Current recipe: \nLemons: " + recipe.amountofLemons + "\nSugar Cubes: " + recipe.amountOfSugarCubes + "\nIce Cubes: " + recipe.amountOfIceCubes + "\nPrice Per Cup: " + recipe.pricePerCup);
-            Console.WriteLine("\nTotal number of cups per pitcher: " + pitcher.cupsLeftInPitcher);
-            Console.WriteLine("\nWould you like to adjust the recipe or Price per cup?");
-            string input = Console.ReadLine();
-            if (input == "yes" || input == "Yes")
-            {
-                recipe.SetRecipe();
-            }
+            Console.WriteLine("\nTotal number of cups per pitcher: " + pitcher.cupsInPitcher);
+      
         }
 
         public void GoToStore(Player player)
         {
-            store.SellLemons(player);
-            store.SellSugarCubes(player);
-            store.SellIceCubes(player);
-            store.SellCups(player);
+            Console.WriteLine("Would you like to go to the store?");
+            string input = Console.ReadLine();
+            if (input == "yes" || input == "Yes")
+            {
+                store.SellLemons(player);
+                store.SellSugarCubes(player);
+                store.SellIceCubes(player);
+                store.SellCups(player);
+                
+                Console.WriteLine("Money left: $" + player.wallet.Money);
+                Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
+            }
+           
 
         }
 

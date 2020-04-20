@@ -10,23 +10,40 @@ namespace LemonadeStand
     {
         //member variables
         public int cupsLeftInPitcher;
+        public int cupsInPitcher;
 
         //constructor
         public Pitcher()
         {
-            cupsLeftInPitcher = 12;
+            cupsLeftInPitcher = 0;
+            cupsInPitcher = 12;
         }
 
         //member methods
 
         public void FillPitcher(Player player)
         {
-            player.inventory.RemoveLemonsFromInventory(player.recipe.amountofLemons);
-            player.inventory.RemoveSugarFromInventory(player.recipe.amountOfSugarCubes);
-            player.inventory.RemoveIceCubesFromInventory(player.recipe.amountOfIceCubes);
-            player.inventory.RemoveCupsFromInventory(cupsLeftInPitcher);
-
             cupsLeftInPitcher = 12;
+
+            if (player.inventory.lemons.Count >= player.recipe.amountofLemons)
+            {
+                player.inventory.RemoveLemonsFromInventory(player.recipe.amountofLemons);
+            }
+
+            if (player.inventory.sugarCubes.Count >= player.recipe.amountOfSugarCubes)
+            {
+                player.inventory.RemoveSugarFromInventory(player.recipe.amountOfSugarCubes);
+            }
+
+            if (player.inventory.iceCubes.Count >= player.recipe.amountOfIceCubes)
+            {
+                player.inventory.RemoveIceCubesFromInventory(player.recipe.amountOfIceCubes);
+            }
+
+            if (player.inventory.cups.Count >= player.pitcher.cupsInPitcher)
+            {
+                player.inventory.RemoveCupsFromInventory(cupsInPitcher);
+            }
 
         }
 

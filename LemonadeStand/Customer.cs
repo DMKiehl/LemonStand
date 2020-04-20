@@ -15,6 +15,7 @@ namespace LemonadeStand
         //constructor
         public Customer()
         {
+            names = new List<string> { "Dana", "Brad", "Fred", "Paul", "Chloe", "Shannon", "Teresa", "Aaron", "Brian", "Amy", "Ethan", "Dave", "Laurie", "Ken", "Lisa", "Kelly", "Tom", "Tony", "Trevor" };
 
         }
 
