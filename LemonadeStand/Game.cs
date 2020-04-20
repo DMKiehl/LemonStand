@@ -36,7 +36,7 @@ namespace LemonadeStand
                 //add day to list??
 
                 StartDayDisplay();
-                player.recipe.SetRecipe();
+                player.DisplayCurrentRecipe();
 
 
 

@@ -26,6 +26,19 @@ namespace LemonadeStand
         //member methods
         public void SetRecipe()
         {
+            Console.WriteLine("How many lemons would you like to use?");
+            amountofLemons = Convert.ToInt32(Console.ReadLine());
+            
+
+            Console.WriteLine("\nHow many sugar cubes would you like to use?");
+            amountOfSugarCubes = Convert.ToInt32(Console.ReadLine());
+            
+
+            Console.WriteLine("\nHow many ice cubes would you like to use per pitcher?");
+            amountOfIceCubes = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nHow much would you like to charge per cup of lemonade?");
+            pricePerCup = Convert.ToDouble(Console.ReadLine());
 
         }
 
