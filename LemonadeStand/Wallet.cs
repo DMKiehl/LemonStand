@@ -28,5 +28,10 @@ namespace LemonadeStand
         {
             money -= transactionAmount;
         }
+
+        public void AddProfitToWallet()
+        {
+
+        }
     }
 }

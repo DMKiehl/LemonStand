@@ -13,6 +13,7 @@ namespace LemonadeStand
         public List<Customer> customers;
         public int dailyCustomerNumber;
         public double trasactionTotal;
+        public double dailyTotal;
         
        
         //constructor
@@ -84,11 +85,13 @@ namespace LemonadeStand
                 customer.CustomerSales(weather);
 
                 trasactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
-                player.
+                dailyTotal += trasactionTotal;
 
                 
 
-                player.pitcher.cupsLeftInPitcher--;
+                
+
+                player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
             }
             
             

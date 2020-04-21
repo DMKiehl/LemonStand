@@ -13,6 +13,10 @@ namespace LemonadeStand
         private List<Day> days;
         private int currentDay;
         public int totalDaysToPlay;
+        public double dailyProfit;
+        public double dailyLosses;
+        public double totalProfit;
+        public double totalLosses;
         
         //constructor
         public Game()
@@ -51,7 +55,7 @@ namespace LemonadeStand
 
                 }
 
-                EndDay();
+                EndDay(newDay);
 
                 currentDay++;
                 totalDaysToPlay--;
@@ -86,10 +90,11 @@ namespace LemonadeStand
             Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
         }
       
-        public void EndDay()
+        public void EndDay(Day day)
         {
             //display daily profits and losses
             //display total profits and losses thus far
+            
         }
 
       

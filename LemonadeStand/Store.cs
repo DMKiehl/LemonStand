@@ -14,6 +14,7 @@ namespace LemonadeStand
         private double pricePerSugarCube;
         private double pricePerIceCube;
         private double pricePerCup;
+        public double supplyExpenses;
 
         // constructor (SPAWNER)
         public Store()
@@ -33,6 +34,7 @@ namespace LemonadeStand
             {
                 player.wallet.PayMoneyForItems(transactionAmount);
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
+                
             }
         }
 
@@ -44,6 +46,7 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
+                
             }
         }
 
@@ -55,6 +58,7 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
+                
             }
         }
 
@@ -66,6 +70,7 @@ namespace LemonadeStand
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
+                
             }
         
         }
@@ -73,6 +78,7 @@ namespace LemonadeStand
         private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)
         {
             double transactionAmount = itemCount * itemPricePerUnit;
+            supplyExpenses += transactionAmount;
             return transactionAmount;
         }
 
