@@ -12,9 +12,11 @@ namespace LemonadeStand
         private List<string> names;
         public string name;
         Random myRandom = new Random();
-        public int maxCupsCustomerWillBuy;
-        public int tempThreshold;
+        public int CupsCustomerWillBuy;
+        public int tempLowThreshold;
+        public int tempHighThreshold;
         public double priceThreshold;
+        public int actualCupsToPurchase;
 
         //constructor
         public Customer()
@@ -32,17 +34,42 @@ namespace LemonadeStand
             name = (names[index]);
 
             int min = 50;
-            int max = 100;
+            int max = 75;
 
             //assign temp
-            tempThreshold = myRandom.Next(min, max);
+            tempLowThreshold = myRandom.Next(min, max);
+
+            int low = 76;
+            int high = 100;
+
+            tempHighThreshold = myRandom.Next(low, high);
 
             //assign price threshold
-            priceThreshold = myRandom.NextDouble();
+            double minimum = .15;
+            double maximum = .55;
+            priceThreshold = myRandom.NextDouble() * (minimum - maximum) + minimum;
 
-            
-               
 
+            CupsCustomerWillBuy = myRandom.Next(1, 2);
+
+        }
+
+        public int CustomerSales(Weather weather)
+        {
+            if(weather.actualTemp > tempLowThreshold)
+            {
+                actualCupsToPurchase = CupsCustomerWillBuy - 1;
+            }
+            else if(tempLowThreshold <= weather.actualTemp && weather.actualTemp <= tempHighThreshold)
+            {
+                actualCupsToPurchase = CupsCustomerWillBuy;
+            }
+            else
+            {
+                actualCupsToPurchase = CupsCustomerWillBuy + 1;
+            }
+
+            return actualCupsToPurchase;
 
         }
             

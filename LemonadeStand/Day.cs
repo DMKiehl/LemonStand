@@ -12,6 +12,8 @@ namespace LemonadeStand
         public Weather weather;
         public List<Customer> customers;
         public int dailyCustomerNumber;
+        public double trasactionTotal;
+        
        
         //constructor
         public Day(int currentDay)
@@ -78,6 +80,12 @@ namespace LemonadeStand
             {
                 Customer customer = new Customer();
                 customers.Add(customer);
+
+                customer.CustomerSales(weather);
+
+                trasactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
+                player.
+
                 
 
                 player.pitcher.cupsLeftInPitcher--;
