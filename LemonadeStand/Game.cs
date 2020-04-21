@@ -33,6 +33,7 @@ namespace LemonadeStand
             SetDays();
             while(totalDaysToPlay > 0)
             {
+                Console.WriteLine("Welcome to Day " + currentDay + "!");
                 Day newDay = new Day(currentDay);
                 days.Add(newDay);
                

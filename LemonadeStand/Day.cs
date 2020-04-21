@@ -87,7 +87,7 @@ namespace LemonadeStand
                 Customer customer = new Customer();
                 customers.Add(customer);
 
-                customer.CustomerSales(weather);
+                customer.CustomerSales(weather, player);
 
                 if(customer.actualCupsToPurchase > player.pitcher.cupsLeftInPitcher)
                 {

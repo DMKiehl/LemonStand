@@ -61,6 +61,7 @@ namespace LemonadeStand
             Console.WriteLine("Total expenses: $" + store.supplyExpenses);
 
             Console.WriteLine("Net profits: $" + (totalEarned - store.supplyExpenses));
+            Console.ReadLine();
             //display total money earned
             //display total cost of expenses
         }

@@ -64,7 +64,7 @@ namespace LemonadeStand
         {
             for (int i = numberOfLemons; i > 0; i--)
             {
-                lemons.RemoveAt(1);
+                lemons.RemoveAt(0);
             }
         }
 
@@ -72,7 +72,7 @@ namespace LemonadeStand
         {
             for (int i = numberOfSugarCubes; i > 0; i--)
             {
-                sugarCubes.RemoveAt(1);
+                sugarCubes.RemoveAt(0);
             }
         }
 
@@ -80,7 +80,7 @@ namespace LemonadeStand
         {
             for (int i = numberOfIceCubes; i > 0; i--)
             {
-                iceCubes.RemoveAt(1);
+                iceCubes.RemoveAt(0);
             }
         }
 
@@ -88,7 +88,7 @@ namespace LemonadeStand
         {
             for (int i = numberOfCups; i > 0; i--)
             {
-                cups.RemoveAt(1);
+                cups.RemoveAt(0);
             }
         }
 

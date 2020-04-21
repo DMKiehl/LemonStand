@@ -54,9 +54,13 @@ namespace LemonadeStand
 
         }
 
-        public int CustomerSales(Weather weather)
+        public int CustomerSales(Weather weather, Player player)
         {
-            if (tempLowThreshold <= weather.actualTemp && weather.actualTemp <= tempHighThreshold)
+            if (player.recipe.pricePerCup > priceThreshold)
+            {
+                actualCupsToPurchase = 0;
+            }
+            else if (tempLowThreshold <= weather.actualTemp && weather.actualTemp <= tempHighThreshold)
             {
                 actualCupsToPurchase = CupsCustomerWillBuy;
             }

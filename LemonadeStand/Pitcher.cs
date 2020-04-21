@@ -23,7 +23,7 @@ namespace LemonadeStand
 
         public void FillPitcher(Player player)
         {
-            cupsLeftInPitcher = 12;
+            cupsLeftInPitcher = 15;
 
             if (player.inventory.lemons.Count >= player.recipe.amountofLemons)
             {
