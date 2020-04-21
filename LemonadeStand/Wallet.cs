@@ -29,9 +29,9 @@ namespace LemonadeStand
             money -= transactionAmount;
         }
 
-        public void AddProfitToWallet()
+        public void AddProfitToWallet(double dailyTotal)
         {
-
+            money += dailyTotal;
         }
     }
 }

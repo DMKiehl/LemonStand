@@ -12,8 +12,10 @@ namespace LemonadeStand
         public Weather weather;
         public List<Customer> customers;
         public int dailyCustomerNumber;
-        public double trasactionTotal;
+        public double transactionTotal;
         public double dailyTotal;
+        public int cupTotal;
+        public int dailyPitcherTotal;
         
        
         //constructor
@@ -22,6 +24,9 @@ namespace LemonadeStand
             customers = new List<Customer>();
             DaysForecast(currentDay);
             DaysActualWeather();
+            transactionTotal = 0;
+            dailyTotal = 0;
+
         }
 
         //member methods
@@ -30,7 +35,7 @@ namespace LemonadeStand
         {
             weather = new Weather();
             weather.GetForecast(currentDay);
-            Console.WriteLine("Weather Forecast: " + weather.condition + " " + weather.temperature + "F");
+            Console.WriteLine("\nWeather Forecast: " + weather.condition + " " + weather.temperature + "F");
 
         }
 
@@ -42,7 +47,7 @@ namespace LemonadeStand
 
         public void PrintActualWeather()
         {
-            Console.WriteLine("Today's weather is: " + weather.actualCondition + " " + weather.actualTemp + "F");
+            Console.WriteLine("\nToday's weather is: " + weather.actualCondition + " " + weather.actualTemp + "F");
         }
 
         public void DailyCustomerNumber()
@@ -84,16 +89,21 @@ namespace LemonadeStand
 
                 customer.CustomerSales(weather);
 
-                trasactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
-                dailyTotal += trasactionTotal;
-
+                if(customer.actualCupsToPurchase > player.pitcher.cupsLeftInPitcher)
+                {
+                    customer.actualCupsToPurchase = player.pitcher.cupsLeftInPitcher;
+                }
+                transactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
+                dailyTotal += transactionTotal;
                 
+
+                cupTotal += customer.actualCupsToPurchase;
 
                 
 
                 player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
             }
-            
+            dailyPitcherTotal++;
             
             
            

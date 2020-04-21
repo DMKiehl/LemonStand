@@ -32,14 +32,14 @@ namespace LemonadeStand
         // member methods (CAN DO)
         public void DisplayCurrentRecipe()
         {
-            Console.WriteLine("Current recipe: \nLemons: " + recipe.amountofLemons + "\nSugar Cubes: " + recipe.amountOfSugarCubes + "\nIce Cubes: " + recipe.amountOfIceCubes + "\nPrice Per Cup: " + recipe.pricePerCup);
+            Console.WriteLine("\nCurrent recipe: \nLemons: " + recipe.amountofLemons + "\nSugar Cubes: " + recipe.amountOfSugarCubes + "\nIce Cubes: " + recipe.amountOfIceCubes + "\nPrice Per Cup: " + recipe.pricePerCup);
             Console.WriteLine("\nTotal number of cups per pitcher: " + pitcher.cupsInPitcher);
       
         }
 
         public void GoToStore(Player player)
         {
-            Console.WriteLine("Would you like to go to the store?");
+            Console.WriteLine("\nWould you like to go to the store?");
             string input = Console.ReadLine();
             if (input == "yes" || input == "Yes")
             {
@@ -48,14 +48,24 @@ namespace LemonadeStand
                 store.SellIceCubes(player);
                 store.SellCups(player);
                 
-                Console.WriteLine("Money left: $" + player.wallet.Money);
-                Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
+                Console.WriteLine("\nMoney left: $" + player.wallet.Money);
+                Console.WriteLine("\nCurrent inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
             }
            
 
         }
 
-        
+        public void EndCalculations(double totalEarned)
+        {
+            Console.WriteLine("\nTotal earned at Lemonade Stand: $" + totalEarned);
+            Console.WriteLine("Total expenses: $" + store.supplyExpenses);
+
+            Console.WriteLine("Net profits: $" + (totalEarned - store.supplyExpenses));
+            //display total money earned
+            //display total cost of expenses
+        }
+
+
 
     }
 

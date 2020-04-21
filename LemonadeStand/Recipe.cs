@@ -30,7 +30,7 @@ namespace LemonadeStand
             string input = Console.ReadLine();
             if (input == "yes" || input == "Yes")
             {
-                Console.WriteLine("How many lemons would you like to use?");
+                Console.WriteLine("\nHow many lemons would you like to use?");
                 amountofLemons = Convert.ToInt32(Console.ReadLine());
 
 
@@ -44,7 +44,7 @@ namespace LemonadeStand
                 Console.WriteLine("\nHow much would you like to charge per cup of lemonade?");
                 pricePerCup = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("New recipe: \nLemons: " + amountofLemons + "\nSugar Cubes: " + amountOfSugarCubes + "\nIce Cubes: " + amountOfIceCubes + "\nPrice Per Cup: " + pricePerCup);
+                Console.WriteLine("\nNew recipe: \nLemons: " + amountofLemons + "\nSugar Cubes: " + amountOfSugarCubes + "\nIce Cubes: " + amountOfIceCubes + "\nPrice Per Cup: " + pricePerCup);
 
 
             }

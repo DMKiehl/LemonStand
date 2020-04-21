@@ -13,10 +13,8 @@ namespace LemonadeStand
         private List<Day> days;
         private int currentDay;
         public int totalDaysToPlay;
-        public double dailyProfit;
-        public double dailyLosses;
-        public double totalProfit;
-        public double totalLosses;
+        public double totalEarned;
+        
         
         //constructor
         public Game()
@@ -31,7 +29,7 @@ namespace LemonadeStand
         //member methods
         public void PlayGame()
         {
-            Console.WriteLine("Welcome to Lemonade Stand " + player.name + "!");
+            Console.WriteLine("\nWelcome to Lemonade Stand " + player.name + "!");
             SetDays();
             while(totalDaysToPlay > 0)
             {
@@ -39,9 +37,10 @@ namespace LemonadeStand
                 days.Add(newDay);
                
                 StartDayDisplay();
+                player.DisplayCurrentRecipe();
                 player.GoToStore(player);
 
-                player.DisplayCurrentRecipe();
+                
                 player.recipe.SetRecipe();
 
                 newDay.PrintActualWeather();
@@ -56,15 +55,18 @@ namespace LemonadeStand
                 }
 
                 EndDay(newDay);
+                
 
                 currentDay++;
                 totalDaysToPlay--;
             }
+            player.EndCalculations(totalEarned);
+            
 
         }
         public void SetDays()
         {
-            Console.WriteLine("How many days would you like to play? 7 or 14");
+            Console.WriteLine("\nHow many days would you like to play? 7 or 14");
             int input = Convert.ToInt32(Console.ReadLine()); 
 
             if (input == 7)
@@ -77,7 +79,7 @@ namespace LemonadeStand
             }
             else
             {
-                Console.WriteLine("Not valid option, please select again");
+                Console.WriteLine("\nNot valid option, please select again");
                 SetDays();
             }
             
@@ -86,16 +88,22 @@ namespace LemonadeStand
 
         public void StartDayDisplay()
         {
-            Console.WriteLine("Money available: $" + player.wallet.Money);
-            Console.WriteLine("Current inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
+            Console.WriteLine("\nMoney available: $" + player.wallet.Money);
+            Console.WriteLine("\nCurrent inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
         }
       
         public void EndDay(Day day)
         {
+            player.wallet.AddProfitToWallet(day.dailyTotal);
+            Console.WriteLine("\nDaily Total: " + day.dailyTotal);
+            Console.WriteLine("Total cups sold today: " + day.cupTotal);
+            Console.WriteLine("Overall Total: " + player.wallet.Money);
             //display daily profits and losses
-            //display total profits and losses thus far
-            
+            //display total profits and losses thus far  
+            totalEarned += day.dailyTotal;
         }
+
+      
 
       
     }

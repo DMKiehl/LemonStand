@@ -47,27 +47,25 @@ namespace LemonadeStand
             //assign price threshold
             double minimum = .15;
             double maximum = .55;
-            priceThreshold = myRandom.NextDouble() * (minimum - maximum) + minimum;
+            priceThreshold = myRandom.NextDouble() * (maximum - minimum) + minimum;
 
 
-            CupsCustomerWillBuy = myRandom.Next(0, 2);
+            CupsCustomerWillBuy = myRandom.Next(1, 2);
 
         }
 
         public int CustomerSales(Weather weather)
         {
-            if (CupsCustomerWillBuy == 0)
+            if (tempLowThreshold <= weather.actualTemp && weather.actualTemp <= tempHighThreshold)
             {
                 actualCupsToPurchase = CupsCustomerWillBuy;
             }
-            else if(weather.actualTemp > tempLowThreshold)
+
+            else if (weather.actualTemp > tempLowThreshold)
             {
                 actualCupsToPurchase = CupsCustomerWillBuy - 1;
             }
-            else if(tempLowThreshold <= weather.actualTemp && weather.actualTemp <= tempHighThreshold)
-            {
-                actualCupsToPurchase = CupsCustomerWillBuy;
-            }
+           
             else
             {
                 actualCupsToPurchase = CupsCustomerWillBuy + 1;

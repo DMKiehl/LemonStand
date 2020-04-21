@@ -16,7 +16,7 @@ namespace LemonadeStand
         public Pitcher()
         {
             cupsLeftInPitcher = 0;
-            cupsInPitcher = 12;
+            cupsInPitcher = 15;
         }
 
         //member methods
