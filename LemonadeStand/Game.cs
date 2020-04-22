@@ -8,6 +8,10 @@ namespace LemonadeStand
 {
     class Game
     {
+        //SOLID - S - Single Responsibility Principle. The game classes responsibility is to run the game from start to finish. 
+        //It welcomes the player, allows the player to set the number of days they want to play. Is responsible for displays the start display which shows the current inventory and money available.
+        //The play game method calls the methods used to run the entire game on a day to day basis.
+        
         //member variables
         private Player player;
         private List<Day> days;
@@ -33,7 +37,7 @@ namespace LemonadeStand
             SetDays();
             while(totalDaysToPlay > 0)
             {
-                Console.WriteLine("Welcome to Day " + currentDay + "!");
+                Console.WriteLine("\nWelcome to Day " + currentDay + "!");
                 Day newDay = new Day(currentDay);
                 days.Add(newDay);
                
@@ -96,12 +100,13 @@ namespace LemonadeStand
         public void EndDay(Day day)
         {
             player.wallet.AddProfitToWallet(day.dailyTotal);
+            totalEarned += day.dailyTotal;
             Console.WriteLine("\nDaily Total: " + day.dailyTotal);
             Console.WriteLine("Total cups sold today: " + day.cupTotal);
-            Console.WriteLine("Overall Total: " + player.wallet.Money);
-            //display daily profits and losses
-            //display total profits and losses thus far  
-            totalEarned += day.dailyTotal;
+            Console.WriteLine("Total earned to date: " + totalEarned);
+            Console.WriteLine("Total available: " + player.wallet.Money);
+            
+            
         }
 
       

@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Weather
     {
+        //SOLID - S - The weather classes sole responsibility is to determine the weather forecast and the actual weather conditions and send that to the day class.
         //member variables
         public string condition;
         public int temperature;

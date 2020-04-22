@@ -127,7 +127,7 @@ namespace LemonadeStand
                 dailyCustomerNumber--;
                 player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
             }
-            dailyPitcherTotal++;
+            
             
             
            

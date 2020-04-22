@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Pitcher
     {
+        //SOLID - S - Pitcher class is responsible for filling the pitcher throughout the day and keeping track of how many cups are left in the pitcher.
         //member variables
         public int cupsLeftInPitcher;
         public int cupsInPitcher;

@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Inventory
     {
+        //SOLID - S - Inventory class is adds or removes items fron inventory when they are bought from the store or used to fill a pitcher.
         // member variables (HAS A)
         public List<Lemon> lemons;
         public List<SugarCube> sugarCubes;
@@ -91,6 +92,8 @@ namespace LemonadeStand
                 cups.RemoveAt(0);
             }
         }
+
+        
 
 
     }
