@@ -34,19 +34,19 @@ namespace LemonadeStand
             name = (names[index]);
 
             int min = 50;
-            int max = 75;
+            int max = 65;
 
             //assign temp
             tempLowThreshold = myRandom.Next(min, max);
 
-            int low = 76;
-            int high = 100;
+            int low = 70;
+            int high = 85;
 
             tempHighThreshold = myRandom.Next(low, high);
 
             //assign price threshold
-            double minimum = .15;
-            double maximum = .55;
+            double minimum = .20;
+            double maximum = .50;
             priceThreshold = myRandom.NextDouble() * (maximum - minimum) + minimum;
 
 

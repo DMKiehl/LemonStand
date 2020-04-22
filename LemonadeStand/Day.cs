@@ -15,7 +15,6 @@ namespace LemonadeStand
         public double transactionTotal;
         public double dailyTotal;
         public int cupTotal;
-        public int dailyPitcherTotal;
         
        
         //constructor
@@ -56,11 +55,11 @@ namespace LemonadeStand
             {
                 dailyCustomerNumber = 50;
             }
-            else if (weather.actualCondition == "Sunny" && weather.actualTemp < 79 && weather.actualTemp >= 60 )
+            else if (weather.actualCondition == "Sunny" && weather.actualTemp <= 79 && weather.actualTemp >= 60 )
             {
                 dailyCustomerNumber = 40;
             }
-            else if (weather.actualCondition == "Sunny" && weather.actualTemp < 59)
+            else if (weather.actualCondition == "Sunny" && weather.actualTemp <= 59)
             {
                 dailyCustomerNumber = 25;
             }
@@ -68,11 +67,11 @@ namespace LemonadeStand
             {
                 dailyCustomerNumber = 45;
             }
-            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp < 79 && weather.actualTemp >= 60)
+            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp <= 79 && weather.actualTemp >= 60)
             {
                 dailyCustomerNumber = 30;
             }
-            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp < 59)
+            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp <= 59)
             {
                 dailyCustomerNumber = 25;
             }
@@ -80,21 +79,29 @@ namespace LemonadeStand
             {
                 dailyCustomerNumber = 40;
             }
-            else if (weather.actualCondition == "Cloudy" && weather.actualTemp < 79 && weather.actualTemp >= 60)
+            else if (weather.actualCondition == "Cloudy" && weather.actualTemp <= 79 && weather.actualTemp >= 60)
             {
                 dailyCustomerNumber = 35;
             }
-            else if (weather.actualCondition == "Cloudy" && weather.actualTemp < 59)
+            else if (weather.actualCondition == "Cloudy" && weather.actualTemp <= 59)
             {
                 dailyCustomerNumber = 30;
             }
-            else if (weather.actualCondition == "Windy")
+            else if (weather.actualCondition == "Windy" && weather.actualTemp >= 79)
+            {
+                dailyCustomerNumber = 35;
+            }
+            else if (weather.actualCondition == "Windy" && weather.actualTemp <= 78)
+            {
+                dailyCustomerNumber = 25;
+            }
+            else if (weather.actualCondition == "Rain" && weather.actualTemp >=79)
             {
                 dailyCustomerNumber = 30;
             }
-            else if (weather.actualCondition == "Rain")
+            else if (weather.actualCondition == "Rain" && weather.actualTemp <= 78)
             {
-                dailyCustomerNumber = 20;
+                dailyCustomerNumber = 25;
             }
             else
             {
@@ -106,35 +113,28 @@ namespace LemonadeStand
 
         public void SellLemonade(Player player)
         {
-            while (dailyCustomerNumber > 0)
+            while (player.pitcher.cupsLeftInPitcher > 0 && dailyCustomerNumber > 0)
             {
-                while (player.pitcher.cupsLeftInPitcher > 0)
+                Customer customer = new Customer();
+                customers.Add(customer);
+
+                customer.CustomerSales(weather, player);
+
+                if (customer.actualCupsToPurchase > player.pitcher.cupsLeftInPitcher)
                 {
-                    Customer customer = new Customer();
-                    customers.Add(customer);
-
-                    customer.CustomerSales(weather, player);
-
-                    if (customer.actualCupsToPurchase > player.pitcher.cupsLeftInPitcher)
-                    {
-                        customer.actualCupsToPurchase = player.pitcher.cupsLeftInPitcher;
-                    }
-                    transactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
-                    dailyTotal += transactionTotal;
-
-
-                    cupTotal += customer.actualCupsToPurchase;
-
-
-                    dailyCustomerNumber--;
-                    player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
+                    customer.actualCupsToPurchase = player.pitcher.cupsLeftInPitcher;
                 }
+                transactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
+                dailyTotal += transactionTotal;
+
+
+                cupTotal += customer.actualCupsToPurchase;
+
+
+                dailyCustomerNumber--;
+                player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
             }
-            
-            
-            
-            
-           
+
         }
 
         
