@@ -33,14 +33,14 @@ namespace LemonadeStand
             int index = myRandom.Next(names.Count);
             name = (names[index]);
 
-            int min = 50;
-            int max = 65;
+            int min = 60;
+            int max = 69;
 
             //assign temp
             tempLowThreshold = myRandom.Next(min, max);
 
             int low = 70;
-            int high = 85;
+            int high = 80;
 
             tempHighThreshold = myRandom.Next(low, high);
 
@@ -50,7 +50,7 @@ namespace LemonadeStand
             priceThreshold = myRandom.NextDouble() * (maximum - minimum) + minimum;
 
 
-            CupsCustomerWillBuy = myRandom.Next(1, 2);
+            CupsCustomerWillBuy = myRandom.Next(1, 3);
 
         }
 

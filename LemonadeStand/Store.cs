@@ -12,9 +12,18 @@ namespace LemonadeStand
         // member variables (HAS A)
         private double pricePerLemon;
         private double pricePerSugarCube;
-        public double pricePerIceCube;
+        private double pricePerIceCube;
         private double pricePerCup;
         public double supplyExpenses;
+
+        public double PricePerIceCube
+        {
+            get
+            {
+                return pricePerIceCube;
+            }
+        }
+
 
         // constructor (SPAWNER)
         public Store()
