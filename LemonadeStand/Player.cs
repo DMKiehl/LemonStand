@@ -52,7 +52,7 @@ namespace LemonadeStand
       
         public void MeltIce()
         {
-            Console.WriteLine(inventory.iceCubes.Count + "ice cubes have melted.");
+            Console.WriteLine(inventory.iceCubes.Count + " ice cubes have melted.");
             inventoryLoss += (inventory.iceCubes.Count * store.pricePerIceCube);
             inventory.RemoveIceCubesFromInventory(inventory.iceCubes.Count);
         }
