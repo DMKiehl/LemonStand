@@ -21,7 +21,7 @@ namespace LemonadeStand
         //constructor
         public Weather()
         {
-            weatherConditions = new List<string> { "Sunny", "Overcast", "Cloudy", "Windy", "Rain", "Thunder"};
+            weatherConditions = new List<string> { "Sunny", "Partly Cloudy", "Cloudy", "Windy", "Rain", "Thunder"};
 
         }
 

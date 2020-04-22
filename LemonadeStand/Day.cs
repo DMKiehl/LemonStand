@@ -52,17 +52,41 @@ namespace LemonadeStand
 
         public void DailyCustomerNumber()
         {
-            if(weather.actualCondition == "Sunny")
+            if(weather.actualCondition == "Sunny" && weather.actualTemp >= 80)
             {
                 dailyCustomerNumber = 50;
             }
-            else if (weather.actualCondition == "Overcast")
+            else if (weather.actualCondition == "Sunny" && weather.actualTemp < 79 && weather.actualTemp >= 60 )
+            {
+                dailyCustomerNumber = 40;
+            }
+            else if (weather.actualCondition == "Sunny" && weather.actualTemp < 59)
+            {
+                dailyCustomerNumber = 25;
+            }
+            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp >= 80)
             {
                 dailyCustomerNumber = 45;
             }
-            else if (weather.actualCondition == "Cloudy")
+            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp < 79 && weather.actualTemp >= 60)
+            {
+                dailyCustomerNumber = 30;
+            }
+            else if (weather.actualCondition == "Partly Cloudy" && weather.actualTemp < 59)
+            {
+                dailyCustomerNumber = 25;
+            }
+            else if (weather.actualCondition == "Cloudy" && weather.actualTemp >= 80)
             {
                 dailyCustomerNumber = 40;
+            }
+            else if (weather.actualCondition == "Cloudy" && weather.actualTemp < 79 && weather.actualTemp >= 60)
+            {
+                dailyCustomerNumber = 35;
+            }
+            else if (weather.actualCondition == "Cloudy" && weather.actualTemp < 59)
+            {
+                dailyCustomerNumber = 30;
             }
             else if (weather.actualCondition == "Windy")
             {
@@ -99,8 +123,8 @@ namespace LemonadeStand
 
                 cupTotal += customer.actualCupsToPurchase;
 
-                
 
+                dailyCustomerNumber--;
                 player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
             }
             dailyPitcherTotal++;
