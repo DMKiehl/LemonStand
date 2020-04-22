@@ -42,7 +42,7 @@ namespace LemonadeStand
                 days.Add(newDay);
                
                 StartDayDisplay();
-                player.DisplayCurrentRecipe();
+                DisplayCurrentRecipe(player);
                 player.GoToStore(player);
 
                 
@@ -96,15 +96,23 @@ namespace LemonadeStand
             Console.WriteLine("\nMoney available: $" + player.wallet.Money);
             Console.WriteLine("\nCurrent inventory: \nLemons: " + player.inventory.lemons.Count + "\nSugar Cubes: " + player.inventory.sugarCubes.Count + "\nCups: " + player.inventory.cups.Count + "\nIce Cubes: " + player.inventory.iceCubes.Count);
         }
-      
+
+        public void DisplayCurrentRecipe(Player player)
+        {
+            Console.WriteLine("\nCurrent recipe: \nLemons: " + player.recipe.amountofLemons + "\nSugar Cubes: " + player.recipe.amountOfSugarCubes + "\nIce Cubes: " + player.recipe.amountOfIceCubes + "\nPrice Per Cup: " + player.recipe.pricePerCup);
+            Console.WriteLine("\nTotal number of cups per pitcher: " + player.pitcher.cupsInPitcher);
+
+        }
+
         public void EndDay(Day day)
         {
+            player.MeltIce();
             player.wallet.AddProfitToWallet(day.dailyTotal);
             totalEarned += day.dailyTotal;
-            Console.WriteLine("\nDaily Total: " + day.dailyTotal);
+            Console.WriteLine("\nDaily Total: $" + day.dailyTotal);
             Console.WriteLine("Total cups sold today: " + day.cupTotal);
-            Console.WriteLine("Total earned to date: " + totalEarned);
-            Console.WriteLine("Total available: " + player.wallet.Money);
+            Console.WriteLine("Total earned to date: $" + totalEarned);
+            Console.WriteLine("Total available: $" + player.wallet.Money);
             
             
         }

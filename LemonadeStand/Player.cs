@@ -15,6 +15,7 @@ namespace LemonadeStand
         public Recipe recipe;
         public Pitcher pitcher;
         private Store store;
+        public double inventoryLoss;
             
 
         // constructor (SPAWNER)
@@ -30,12 +31,6 @@ namespace LemonadeStand
         }
 
         // member methods (CAN DO)
-        public void DisplayCurrentRecipe()
-        {
-            Console.WriteLine("\nCurrent recipe: \nLemons: " + recipe.amountofLemons + "\nSugar Cubes: " + recipe.amountOfSugarCubes + "\nIce Cubes: " + recipe.amountOfIceCubes + "\nPrice Per Cup: " + recipe.pricePerCup);
-            Console.WriteLine("\nTotal number of cups per pitcher: " + pitcher.cupsInPitcher);
-      
-        }
 
         public void GoToStore(Player player)
         {
@@ -55,13 +50,20 @@ namespace LemonadeStand
 
         }
       
+        public void MeltIce()
+        {
+            Console.WriteLine(inventory.iceCubes.Count + " have melted.");
+            inventoryLoss += (inventory.iceCubes.Count * store.pricePerIceCube);
+            inventory.RemoveIceCubesFromInventory(inventory.iceCubes.Count);
+        }
 
         public void EndCalculations(double totalEarned)
         {
             Console.WriteLine("\nTotal earned at Lemonade Stand: $" + totalEarned);
             Console.WriteLine("Total expenses: $" + store.supplyExpenses);
+            Console.WriteLine("Total inventory losses: $" + inventoryLoss);
 
-            Console.WriteLine("Net profits: $" + (totalEarned - store.supplyExpenses));
+            Console.WriteLine("Net profits: $" + (totalEarned - store.supplyExpenses - inventoryLoss));
             Console.ReadLine();
             
         }

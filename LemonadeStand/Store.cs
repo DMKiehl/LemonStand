@@ -12,7 +12,7 @@ namespace LemonadeStand
         // member variables (HAS A)
         private double pricePerLemon;
         private double pricePerSugarCube;
-        private double pricePerIceCube;
+        public double pricePerIceCube;
         private double pricePerCup;
         public double supplyExpenses;
 

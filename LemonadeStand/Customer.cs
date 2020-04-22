@@ -65,7 +65,7 @@ namespace LemonadeStand
                 actualCupsToPurchase = CupsCustomerWillBuy;
             }
 
-            else if (weather.actualTemp > tempLowThreshold)
+            else if (weather.actualTemp < tempLowThreshold)
             {
                 actualCupsToPurchase = CupsCustomerWillBuy - 1;
             }

@@ -106,27 +106,31 @@ namespace LemonadeStand
 
         public void SellLemonade(Player player)
         {
-            while(player.pitcher.cupsLeftInPitcher > 0)
+            while (dailyCustomerNumber > 0)
             {
-                Customer customer = new Customer();
-                customers.Add(customer);
-
-                customer.CustomerSales(weather, player);
-
-                if(customer.actualCupsToPurchase > player.pitcher.cupsLeftInPitcher)
+                while (player.pitcher.cupsLeftInPitcher > 0)
                 {
-                    customer.actualCupsToPurchase = player.pitcher.cupsLeftInPitcher;
+                    Customer customer = new Customer();
+                    customers.Add(customer);
+
+                    customer.CustomerSales(weather, player);
+
+                    if (customer.actualCupsToPurchase > player.pitcher.cupsLeftInPitcher)
+                    {
+                        customer.actualCupsToPurchase = player.pitcher.cupsLeftInPitcher;
+                    }
+                    transactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
+                    dailyTotal += transactionTotal;
+
+
+                    cupTotal += customer.actualCupsToPurchase;
+
+
+                    dailyCustomerNumber--;
+                    player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
                 }
-                transactionTotal = player.recipe.pricePerCup * customer.actualCupsToPurchase;
-                dailyTotal += transactionTotal;
-                
-
-                cupTotal += customer.actualCupsToPurchase;
-
-
-                dailyCustomerNumber--;
-                player.pitcher.cupsLeftInPitcher -= customer.actualCupsToPurchase;
             }
+            
             
             
             
